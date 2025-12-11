@@ -6,3 +6,15 @@
   resources: NANO
   events:
   - type: WEBHOOK
+  actions:
+  - action: npm run start
+    type: BUILD
+    docker_image_name: library/node
+    docker_image_tag: 22
+    execute_commands:
+    - "# yarn install"
+    - npm install
+    - cd ./server
+    - npm install
+    - npm run start
+    shell: BASH
